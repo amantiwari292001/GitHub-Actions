@@ -1,7 +1,7 @@
-name: Simple CI/CD
-
 on:
-  push: main
+  push:
+    branches:
+      - main
 
 jobs:
   test:
@@ -9,17 +9,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v3
         with:
-          node-version: lts/*
-      
+          node-version: '18.x'
+
       - name: Install Dependencies
         run: npm ci
 
-      - name: Install playwright
+      - name: Install Playwright
         run: npx playwright install --with-deps
-      
+
       - name: Completed
         run: echo "Completed the run of this pipeline"
