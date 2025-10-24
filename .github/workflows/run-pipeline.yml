@@ -20,7 +20,7 @@ jobs:
         run: npm install
 
       - name: Install Playwright
-        run: npx playwright install --with-deps
+        run: npx playwright install
 
       - name: Completed
         run: echo "Completed the run of this pipeline"
