@@ -1,7 +1,7 @@
 name: Simple CI/CD
 
 on:
-  push: [main]
+  push: main
 
 jobs:
   test:
