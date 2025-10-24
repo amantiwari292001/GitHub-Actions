@@ -16,5 +16,8 @@ jobs:
         with:
           node-version: '18.x'
 
+      - name: Install Playwright Browsers
+        run: npm ci
+
       - name: Completed
         run: echo "Completed the run of this pipeline"
