@@ -1,0 +1,25 @@
+{
+  "name": "github-actions",
+  "version": "1.0.0",
+  "description": "Write CI/CD using GitHub Actions",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test --retries=1 --workers=2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amantiwari292001/GitHub-Actions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/amantiwari292001/GitHub-Actions/issues"
+  },
+  "homepage": "https://github.com/amantiwari292001/GitHub-Actions#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.9.2"
+  }
+}
