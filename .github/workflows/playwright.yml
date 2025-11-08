@@ -20,7 +20,13 @@ jobs:
           urls: https://www.amazon.in/
           configPath: ./lighthouserc.json
           uploadArtifacts: true
-          artifactName: lighthouse_report
+
+      - name: Upload Lighthouse HTML Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse_html_report
+          path: .lighthouseci/*.html
 
   test:
     name: Run Playwright - Tests
