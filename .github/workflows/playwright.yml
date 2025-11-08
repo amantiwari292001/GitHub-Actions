@@ -18,7 +18,7 @@ jobs:
         uses: treosh/lighthouse-ci-action@v8
         with:
           urls: https://www.amazon.in/
-          configPath: ./configs/lighthouserc.json
+          configPath: ./config/lighthouserc.json
           uploadArtifacts: true
 
       - name: Upload Lighthouse HTML Report
