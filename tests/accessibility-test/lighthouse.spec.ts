@@ -14,7 +14,7 @@ test('Lighthouse audit for homepage', async ({ page }) => {
       accessibility: 50,
       'best-practices': 90,
       seo: 50,
-      pwa: 0,
+      // removed 'pwa' because current Lighthouse doesn't recognize that category
     },
     port: 9222,
   });
