@@ -7,34 +7,24 @@ on:
 
 jobs:
 
-  lighthouse:
-    name: Run Lighthouse Accessibility Audit
+  lighthouse-audit:
     runs-on: ubuntu-latest
     steps:
-      - name: Check Repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Start Lighthouse CI Audit
-        run: echo "Lighthouse CI Audit Started"
-        
-      - name: Install Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Or your preferred Node.js version
+          node-version: '18.x'
 
-      - name: Install Lighthouse CI
-        run: npm install -g @lhci/cli
+      - name: Install dependencies
+        run: npm install
 
-      - name: Run Lighthouse CI
-        run: lhci autorun ./config/.lighthouserc.json 
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
 
-      - name: Generate Lighthouse Summary
-        uses: foo-software/lighthouse-check-action@master
-        with:
-          urls: "https://www.amazon.in"
-          outputDirectory: "./lighthouse-reports"
-
-
+      - name: Run Lighthouse audit
+        run: npx playwright test accessibility-test/lighthouse.spec.ts
 
   test:
     name: Run Playwright - Tests
