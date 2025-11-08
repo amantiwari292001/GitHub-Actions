@@ -6,26 +6,6 @@ on:
       - master
 
 jobs:
-
-  lighthouse-audit:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18.x'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps
-
-      - name: Run Lighthouse audit
-        run: npx playwright test tests/accessibility-test/lighthouse.spec.ts
-
   test:
     name: Run Playwright - Tests
     runs-on: ubuntu-latest
