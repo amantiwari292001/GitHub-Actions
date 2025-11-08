@@ -14,23 +14,6 @@ jobs:
       - name: Check Repository
         uses: actions/checkout@v3
 
-      - name: Run Lighthouse Audit
-        uses: treosh/lighthouse-ci-action@v8
-        with:
-          urls: https://www.amazon.in/
-          configPath: ./config/lighthouserc.json
-          uploadArtifacts: true
-
-      - name: List Lighthouse Output Files
-        run: ls -la .lighthouseci
-
-      - name: Upload Lighthouse HTML Report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: lighthouse_results
-          path: .lighthouseci/report.html
-
   test:
     name: Run Playwright - Tests
     runs-on: ubuntu-latest
