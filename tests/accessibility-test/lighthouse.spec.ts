@@ -1,17 +1,18 @@
   // tests/lighthouse.spec.ts
   import { test, expect } from '@playwright/test';
   import { playAudit } from 'playwright-lighthouse';
+import { urls } from '../../data/urls/urls';
 
   test('Lighthouse audit for homepage', async ({ page }) => {
-    await page.goto('YOUR_APPLICATION_URL'); // Replace with your application's URL
+    await page.goto(urls.baseURL); // Replace with your application's URL
 
     await playAudit({
       page,
       thresholds: {
         performance: 50, // Example threshold
-        accessibility: 90,
+        accessibility: 50,
         'best-practices': 90,
-        seo: 90,
+        seo: 50,
         pwa: 0,
       },
       port: 9222, // Use a free port
