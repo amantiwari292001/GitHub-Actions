@@ -21,12 +21,15 @@ jobs:
           configPath: ./config/lighthouserc.json
           uploadArtifacts: true
 
+      - name: List Lighthouse Output Files
+        run: ls -la .lighthouseci
+
       - name: Upload Lighthouse HTML Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: lighthouse_results
-          path: .lighthouseci/*.html
+          path: .lighthouseci/report.html
 
   test:
     name: Run Playwright - Tests
