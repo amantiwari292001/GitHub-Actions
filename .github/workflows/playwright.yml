@@ -6,10 +6,25 @@ on:
       - master
 
 jobs:
+
+  lighthouse:
+    name: Run Lighthouse Accessibility Audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Repository
+        uses: actions/checkout@v3
+
+      - name: Run Lighthouse Audit
+        uses: treosh/lighthouse-ci-action@v8
+        with:
+          urls: https://www.amazon.in/
+          configPath: ./lighthouserc.json
+          uploadArtifacts: true    
+
   test:
     name: Run Playwright - Tests
     runs-on: ubuntu-latest
-
+    needs: lighthouse
     steps:
       - name: Check Repository
         uses: actions/checkout@v3
