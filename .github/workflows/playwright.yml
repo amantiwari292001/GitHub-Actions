@@ -31,6 +31,12 @@ jobs:
       - name: Run Lighthouse CI
         run: lhci autorun ./config/lighthouse-score.json
 
+      - name: Generate Lighthouse Summary
+        uses: foo-software/lighthouse-check-action@master
+        with:
+          urls: "http://localhost:8080"
+          outputDirectory: "./lighthouse-reports"
+
 
 
   test:
