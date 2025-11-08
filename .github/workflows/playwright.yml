@@ -26,7 +26,7 @@ jobs:
         run: npm install -g @lhci/cli
 
       - name: Run Lighthouse CI
-        run: lhci autorun ./config/lighthouse-score.json
+        run: lhci autorun 
 
       - name: Generate Lighthouse Summary
         uses: foo-software/lighthouse-check-action@master
