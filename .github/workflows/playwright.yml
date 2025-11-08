@@ -25,16 +25,13 @@ jobs:
       - name: Install Lighthouse CI
         run: npm install -g @lhci/cli
 
-      - name: Debug config path
-        run: ls -la ./config
-
       - name: Run Lighthouse CI
         run: lhci autorun ./config/lighthouse-score.json
 
       - name: Generate Lighthouse Summary
         uses: foo-software/lighthouse-check-action@master
         with:
-          urls: "http://localhost:8080"
+          urls: "https://www.amazon.in"
           outputDirectory: "./lighthouse-reports"
 
 
