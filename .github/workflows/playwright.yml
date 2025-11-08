@@ -25,6 +25,9 @@ jobs:
       - name: Install Lighthouse CI
         run: npm install -g @lhci/cli
 
+      - name: Debug config path
+        run: ls -la ./config
+
       - name: Run Lighthouse CI
         run: lhci autorun --config ./config/lighthouse-score.json
 
