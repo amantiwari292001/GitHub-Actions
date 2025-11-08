@@ -9,6 +9,6 @@ test.beforeEach(async({page}) => {
 
 test.describe.parallel('Search checks', async() => {
     test('Search the cheapest phone', async({page}) => {
-        page.goto(urls.baseURL);
+        await page.goto(urls.baseURL);
     });
 });
