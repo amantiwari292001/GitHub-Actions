@@ -26,7 +26,8 @@ jobs:
         run: npm install -g @lhci/cli
 
       - name: Run Lighthouse CI
-        run: lhci autorun --config ./config/lighthouse-score.js # Or a custom config path
+          run: lhci autorun --config ./.lighthouserc.js
+
 
   test:
     name: Run Playwright - Tests
