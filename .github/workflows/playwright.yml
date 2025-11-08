@@ -19,7 +19,8 @@ jobs:
         with:
           urls: https://www.amazon.in/
           configPath: ./lighthouserc.json
-          uploadArtifacts: true    
+          uploadArtifacts: true
+          artifactName: lighthouse-report
 
   test:
     name: Run Playwright - Tests
