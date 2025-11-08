@@ -4,7 +4,7 @@
   "description": "Write CI/CD using GitHub Actions",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test --retries=1 --workers=2"
+    "test": "npx playwright test --workers=2 --retries=1 --headed"
   },
   "repository": {
     "type": "git",
