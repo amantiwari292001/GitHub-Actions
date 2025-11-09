@@ -13,13 +13,12 @@ jobs:
       - name: Audit URLs using Lighthouse CI
         uses: treosh/lighthouse-ci-action@v10
         with:
-          configPath: ./lighthouserc.js
+          configPath: accessibility-test/lighthouserc.js
 
-      - name: Upload Lighthouse artifacts # <-- ADDED: Step to upload the generated reports as an artifact
+      - name: Upload Lighthouse artifacts
         uses: actions/upload-artifact@v4
         with:
           name: Lighthouse-Reports
-          # The treosh/lighthouse-ci-action saves reports to this default directory:
           path: .lighthouseci/
 
 
