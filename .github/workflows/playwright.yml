@@ -20,11 +20,11 @@ jobs:
 
       - name: Upload Lighthouse report
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: lighthouse-accessibility-report
           path: .lighthouseci/report.html
-          
+
   test:
     name: Run Playwright - Tests
     runs-on: ubuntu-latest
