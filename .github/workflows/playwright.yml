@@ -15,6 +15,13 @@ jobs:
         with:
           configPath: accessibility-test/lighthouserc.js
 
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci/*.html
+
   test:
     name: Run Playwright - Tests
     runs-on: ubuntu-latest
