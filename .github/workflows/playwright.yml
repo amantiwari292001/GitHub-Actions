@@ -16,7 +16,7 @@ jobs:
         uses: treosh/lighthouse-ci-action@v8
         with:
           configPath: ./lighthouse-score.json
-          uploadArtifacts: true
+          uploadArtifacts: false
 
       - name: Upload Lighthouse report
         if: always()
