@@ -1,12 +1,13 @@
 module.exports = {
   ci: {
     collect: {
-      url: [
-        'https://www.youtube.com/'
-      ],
+      url: ['https://www.youtube.com/'],
+      numberOfRuns: 3,
       settings: {
         onlyCategories: ['accessibility', 'performance', 'seo', 'best-practices'],
         output: ['html', 'json'],
+        preset: 'desktop',
+        throttlingMethod: 'devtools',
       },
     },
     assert: {
@@ -18,7 +19,7 @@ module.exports = {
       },
     },
     upload: {
-      target: '.lighthouseci/',
+      target: 'temporary-public-storage',
     },
   },
 };
