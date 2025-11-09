@@ -15,6 +15,13 @@ jobs:
         with:
           configPath: ./lighthouserc.js
 
+      - name: Upload Lighthouse artifacts # <-- ADDED: Step to upload the generated reports as an artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Lighthouse-Reports
+          # The treosh/lighthouse-ci-action saves reports to this default directory:
+          path: .lighthouseci/
+
 
   test:
     name: Run Playwright - Tests

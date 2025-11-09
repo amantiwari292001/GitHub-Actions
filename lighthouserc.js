@@ -1,21 +1,26 @@
-    // lighthouserc.js
-    module.exports = {
-      ci: {
-        collect: {
-          url: [
-            'https://www.youtube.com/',
-          ],
-          settings: {
-            onlyCategories: ['accessibility'], // Run only accessibility audits
-          },
-        },
-        assert: {
-          assertions: {
-            'categories:accessibility': ['error', { minScore: 0.9 }], // Fail if accessibility score is below 90%
-          },
-        },
-        upload: {
-          target: 'temporary-public-storage', // Upload reports to a temporary public storage
-        },
+module.exports = {
+  ci: {
+    collect: {
+      url: [
+        'https://www.youtube.com/'
+      ],
+      settings: {
+        onlyCategories: ['accessibility', 'performance', 'seo', 'best-practices'],
+        // You can also add 'pwa' if you're testing Progressive Web Apps
+        output: ['html', 'json'], // Ensure reports are generated
       },
-    };
+    },
+    assert: {
+      assertions: {
+        'categories:accessibility': ['error', { minScore: 0.9 }],
+        'categories:performance': ['warn', { minScore: 0.8 }],
+        'categories:seo': ['warn', { minScore: 0.85 }],
+        'categories:best-practices': ['warn', { minScore: 0.9 }],
+        // Optional: 'categories:pwa': ['warn', { minScore: 0.5 }]
+      },
+    },
+    upload: {
+      target: 'temporary-public-storage',
+    },
+  },
+};
