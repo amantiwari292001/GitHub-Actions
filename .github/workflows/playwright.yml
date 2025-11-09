@@ -23,6 +23,9 @@ jobs:
               .lighthouseci/*.report.html
               .lighthouseci/*.report.json
 
+      - name: List Lighthouse report files
+        run: ls -la .lighthouseci
+
 
   test:
     name: Run Playwright - Tests
