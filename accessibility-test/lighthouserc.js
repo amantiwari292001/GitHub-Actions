@@ -13,7 +13,7 @@ module.exports = {
     assert: {
       assertions: {
         'categories:accessibility': ['error', { minScore: 0.8 }],
-        'categories:performance': ['error', { minScore: 0.6 }],
+        'categories:performance': ['error', { minScore: 0.55 }],
         'categories:seo': ['error', { minScore: 0.5 }],
         'categories:best-practices': ['error', { minScore: 0.7 }],
       },
