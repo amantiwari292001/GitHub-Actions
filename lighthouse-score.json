@@ -1,0 +1,15 @@
+{
+  "ci": {
+    "collect": {
+      "url": ["https://example.com"],
+      "settings": {
+        "output": ["html", "json"]
+      }
+    },
+    "assert": {
+      "assertions": {
+        "categories:accessibility": ["error", { "minScore": 0.5 }]
+      }
+    }
+  }
+}

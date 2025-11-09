@@ -6,6 +6,25 @@ on:
       - master
 
 jobs:
+  lighthouse-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run Lighthouse accessibility audit
+        uses: treosh/lighthouse-ci-action@v8
+        with:
+          configPath: ./lighthouse-score.json
+          uploadArtifacts: true
+
+      - name: Upload Lighthouse report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: lighthouse-accessibility-report
+          path: .lighthouseci/report.html
+          
   test:
     name: Run Playwright - Tests
     runs-on: ubuntu-latest
