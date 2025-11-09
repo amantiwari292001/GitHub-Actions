@@ -29,6 +29,7 @@ jobs:
         with:
           name: lighthouse-accessibility-report
           path: .lighthouserci/report.html
+          include-hidden-files: true
 
   test:
     name: Run Playwright - Tests
