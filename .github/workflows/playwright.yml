@@ -29,7 +29,7 @@ jobs:
     name: Run Playwright - Tests
     runs-on: ubuntu-latest
     steps:
-      - name: Check Repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Setup Node.js
@@ -48,7 +48,7 @@ jobs:
 
       - name: Upload Playwright Test Artifacts
         if: always()
-        uses: actions/upload-artifact@v4 
+        uses: actions/upload-artifact@v4
         with:
           name: Playwright-Test-Results
           path: playwright-report/
