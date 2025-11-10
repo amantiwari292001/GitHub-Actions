@@ -6,11 +6,21 @@ on:
       - master
 
 jobs:
+  lighthouse-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit URLs using Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          configPath: accessibility-test/lighthouserc.js
+
   test:
     name: Run Playwright - Tests
     runs-on: ubuntu-latest
+    needs: lighthouse-audit
     steps:
-      - name: Check Repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Setup Node.js
@@ -29,7 +39,7 @@ jobs:
 
       - name: Upload Playwright Test Artifacts
         if: always()
-        uses: actions/upload-artifact@v4 
+        uses: actions/upload-artifact@v4
         with:
           name: Playwright-Test-Results
           path: playwright-report/
